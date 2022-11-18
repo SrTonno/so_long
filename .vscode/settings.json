@@ -1,5 +1,8 @@
 {
 	"files.associations": {
-		"so_long.h": "c"
+		"so_long.h": "c",
+		"vector": "c",
+		"iosfwd": "c",
+		"iterator": "c"
 	}
 }

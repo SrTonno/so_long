@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:57:35 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/09 18:48:18 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/11/16 13:54:40 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,37 +17,12 @@
 #include <stdio.h>
 #include <unistd.h>
 
-char	*ft_strjoin2(char *s1, char *s2)
-{
-	int		x1;
-	int		x2;
-	int		i;
-	int		j;
-	char	*pnt;
-
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	x1 = ft_strlen((char *)s1);
-	x2 = ft_strlen((char *)s2);
-	i = 0;
-	j = 0;
-	pnt = malloc(sizeof(char) * (x1 + x2 + 1));
-	if (pnt == NULL)
-		return (NULL);
-	while (s1[j] != '\0')
-		pnt[i++] = (char)s1[j++];
-	j = 0;
-	while (s2[j] != '\0')
-		pnt[i++] = (char)s2[j++];
-	pnt[i] = '\0';
-	free(s1);
-	return (pnt);
-}
 /*
 Formas de Hacer el mapa:
 1.-Leer en lineas y guardarlo en listas elazadas
 2.-Leer en una linea y usar el split para separar crear la array de 2 dimensiones
 */
+/*
 void struc_map(t_map *lst, int fd)
 {
 	t_map	*tmp;
@@ -79,41 +54,49 @@ void struc_map(t_map *lst, int fd)
 	//lst = lst->next;
 
 }
-void	read_map()
+*/
+int		count_line(char *ber)
 {
 	char	*ptn;
+	int		fd;
+	int		count;
+
+	count = 0;
+	fd = open(ber, O_RDONLY);
+	ptn = get_next_line(fd);
+	while (ptn != NULL)
+	{
+		count++;
+		free(ptn);
+		ptn = get_next_line(fd);
+	}
+	free(ptn);
+	//ft_printf("%d\n", count);
+	close(fd);
+	return (count);
+}
+char	**read_map(char *ber, int count)
+{
 	char	**map;
 	int		fd;
-	t_map	*lst;
-	int		numbytes;
-	char	tmp;
+	char	*aux;
+	int		i;
 
-	ptn = ft_calloc(1, sizeof(char));
-	fd = open("map.ber", O_RDONLY);
-
-	numbytes = 1;
-	while (numbytes > 0)
+	i = 0;
+	fd = open(ber, O_RDONLY);
+	map = calloc(count, sizeof(char *));
+	while (count > i)
 	{
-		numbytes = read(fd, tmp, 1);
-		if (numbytes == -1)
-			return ;
-		ptn = ft_strjoin2(ptn, tmp);
+		aux = get_next_line(fd);
+		map[i++] = ft_strtrim(aux, "\n");
+		free(aux);
 	}
-
-	map = ft_split(ptn, '\n');
-	free(ptn);
-
-	ft_printf("%s\n", map[0]);
-	ft_printf("%s\n", map[1]);
-	ft_printf("%s\n-----\n", map[2]);
-	//chek_map(map);
-	ft_printf("%d\n", chek_map(map));
-
+	//ft_printf("-%s-\n", map[0]);
+	if (chek_map(map, count) == 0)
+	{
+		liberator_map(map, count);
+		perror("Error: Map not valid :(");
+		exit(-1);
+	}
+	return (map);
 }
-/*
-int main()
-{
-	read_map();
-	return 0;
-}
-*/

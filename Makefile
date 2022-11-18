@@ -2,7 +2,9 @@
 #                                              FILES                          #
 ###############################################################################
 CFILES		= \
-			main.c
+			main.c \
+			funtions/chek/chek_arg.c funtions/chek/chek_map.c funtions/open_map.c \
+			funtions/liberator_map.c funtions/find.c funtions/create_vector.c
 OBJS	=	${CFILES:.c=.o}
 
 CLIBFT		= \
@@ -51,33 +53,47 @@ NLIBRARY= libft.a
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
+OPGRAFIC = -lmlx -framework OpenGL -framework AppKit
 
 AR = ar
 ARFLAGS = -rcs
 RM = rm -f
 
 LIBFT = $(OLIBFT) $(OPRINTF) $(OGNL)
+
 ###############################################################################
 #                                              OPTIONS                        #
 ###############################################################################
 all: ${NAME}
 
 ${NAME}: ${NLIBRARY} ${OBJS}
-	${CC} ${CFLAGS} ${OBJS} ${NLIBRARY} -o $@
+	@${CC} ${CFLAGS} ${OBJS} ${NLIBRARY} ${OPGRAFIC} -o $@
+	@echo "Created so_long."
 
 $(NLIBRARY): $(LIBFT)
-	$(AR) $(ARFLAGS) $@ $^
+	@$(AR) $(ARFLAGS) $@ $^
+	@echo "Created LIBFT."
 
 .c.o:
-		 ${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+		 @${CC} ${CFLAGS} -Imlx -c $< -o ${<:.c=.o}
 
 ###############################################################################
 clean:
-		${RM} ${OBJS} ${LIBFT}
+		@${RM} ${OBJS} ${LIBFT}
+		@echo "Delete .o."
 
 fclean: clean
-		${RM} ${NLIBRARY}
+		@${RM} ${NLIBRARY} ${NAME}
+		@echo "Delete libft.a and so_long."
 
 re: fclean all
 
-.PHONY = all clean fclean re
+help:
+	@echo "Options of MakeFile:"
+	@echo "\tDeault: Created '${NAME}'"
+	@echo "\tclean: Delete '.o'."
+	@echo "\tfclean: Delete'.o', '${NLIBRARY}' and '${NAME}'"
+	@echo "\tre: Delete '.o', '${NLIBRARY}', '${NAME}' and creates '${NAME}'"
+	@echo "MakeFile by tvillare."
+
+.PHONY = all clean fclean re help

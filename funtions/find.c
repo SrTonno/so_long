@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hunt.c                                             :+:      :+:    :+:   */
+/*   find.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:54:06 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/08 14:09:49 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/11/16 12:39:42 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-int	*hunt(char letter, char **map)
+
+int	*hunt_letter(char letter, char **map, int count)
 {
-	int xy[2];
+	int *xy;
 	int num_e;
 	int	x;
 	int y;
 
+	xy = ft_calloc(3, sizeof(int));
 	x = -1;
-	y = -1;
 	num_e = 0;
 	xy[0] = -1;
 	xy[1] = -1;
-	while (map[++x] != '/0')
+	while (count > ++x)
 	{
-		while (map[x][++y] != '/0')
+		y = -1;
+		while (map[x][++y])
 		{
-			if (map[x][y] == 'E')
+			if (map[x][y] == letter)
 			{
 				xy[0] = x;
 				xy[1] = y;
@@ -35,12 +37,24 @@ int	*hunt(char letter, char **map)
 			}
 		}
 	}
-	if (num_e != 1)
-		return (-1);
-	return(xy);
+	return (xy);
 }
-/*
+
+int	find_letter(char letter, char **map, int count)
+{
+
+	int num_e;
+	int	x;
+	int y;
+
+	x = -1;
+	num_e = 0;
+	while (count > ++x)
 	{
-		xy[0] = -1;
-		return(xy);
-	}*/
+		y = -1;
+		while (map[x][++y])
+			if (map[x][y] == letter)
+				num_e++;
+	}
+	return (num_e);
+}
