@@ -8,7 +8,7 @@ typedef struct	s_vars {
 
 int	key_hook(int keycode, t_vars *vars)
 {
-	printf("Hello from key_hook!\n");
+	printf("Hello %d from key_hook!\n", keycode);
 	return (0);
 }
 

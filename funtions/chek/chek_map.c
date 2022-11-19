@@ -6,11 +6,42 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:18:21 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/18 20:32:08 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/11/19 11:43:41 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../so_long.h"
+
+static int	check_letter(char **map, int count)
+{
+
+	int num_e;
+	int num_p;
+	int num_c;
+	int	x;
+	int y;
+
+	x = -1;
+	num_e = 0;
+	num_p = 0;
+	num_c = 0;
+	while (count > ++x)
+	{
+		y = -1;
+		while (map[x][++y])
+		{
+			if (map[x][y] == 'E')
+				num_e++;
+			else if (map[x][y] == 'P')
+				num_p++;
+			else if (map[x][y] == 'C')
+				num_c++;
+		}
+	}
+	if (num_e == 1 && num_p == 1 && num_c > 0)
+		return (1);
+	return (0);
+}
 
 static int	unique_1(char *str)
 {
@@ -74,7 +105,7 @@ int	chek_map(char **map, int count)
 			return (0);
 		x++;
 	}
-	if (find_letter('E', map, count) != 1 && find_letter('P', map, count) != 1 && find_letter('C', map, count) <= 0)
+	if (check_letter(map, count) == 0)
 		return(0);
 	return (1);
 }

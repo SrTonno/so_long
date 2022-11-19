@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:54:06 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/16 12:39:42 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/11/19 11:37:39 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	*hunt_letter(char letter, char **map, int count)
 	}
 	return (xy);
 }
-
-int	find_letter(char letter, char **map, int count)
+/*
+int	find_count(char letter, char **map, int count)
 {
 
 	int num_e;
@@ -56,5 +56,7 @@ int	find_letter(char letter, char **map, int count)
 			if (map[x][y] == letter)
 				num_e++;
 	}
+	ft_printf("num_%c:%d\n", letter, num_e);
 	return (num_e);
 }
+*/
