@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:18:21 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/19 11:43:41 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/11/24 12:13:38 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,30 +82,29 @@ static int	chek_len(char **map, int count)
 	return (1);
 }
 
-int	chek_map(char **map, int count)
+int	chek_map(t_game game)
 {
 	int	x;
 	int	output;
-	int len;
 
 	x = 0;
 	output = 5;
-	len = ft_strlen(map[0]);
-	if (count < 3 ||len < 4 || count == len)
+	game.len = ft_strlen(game.map[0]);
+	if (game.count < 3 || game.len < 4 || game.count == game.len)
 		return (0);
-	if (chek_len(map, count) == 0)
+	if (chek_len(game.map, game.count) == 0)
 		return (0);
-	while (count > x)
+	while (game.count > x)
 	{
-		if (x == 0 || count == x + 1)
-			output = unique_1(map[x]);
+		if (x == 0 || game.count == x + 1)
+			output = unique_1(game.map[x]);
 		else
-			output = first_end1(map[x], len);
+			output = first_end1(game.map[x], game.len);
 		if (output == 0)
 			return (0);
 		x++;
 	}
-	if (check_letter(map, count) == 0)
+	if (check_letter(game.map, game.count) == 0)
 		return(0);
 	return (1);
 }

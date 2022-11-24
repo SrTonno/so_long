@@ -4,7 +4,8 @@
 CFILES		= \
 			main.c \
 			funtions/chek/chek_arg.c funtions/chek/chek_map.c funtions/open_map.c \
-			funtions/liberator_map.c funtions/find.c funtions/create_vector.c
+			funtions/liberator_map.c funtions/find.c funtions/create_vector.c \
+			grafic/view_map.c funtions/mod_map.c
 OBJS	=	${CFILES:.c=.o}
 
 CLIBFT		= \

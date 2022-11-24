@@ -3,6 +3,13 @@
 		"so_long.h": "c",
 		"vector": "c",
 		"iosfwd": "c",
-		"iterator": "c"
+		"iterator": "c",
+		"mlx.h": "c",
+		"stdio.h": "c",
+		"array": "c",
+		"string": "c",
+		"string_view": "c",
+		"__locale": "c",
+		"ios": "c"
 	}
 }

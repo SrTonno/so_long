@@ -6,38 +6,32 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:54:06 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/19 11:37:39 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/11/24 12:08:03 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-int	*hunt_letter(char letter, char **map, int count)
+void	hunt_letter(char letter, t_game *game)
 {
-	int *xy;
-	int num_e;
-	int	x;
-	int y;
+	int	col;
+	int fil;
 
-	xy = ft_calloc(3, sizeof(int));
-	x = -1;
-	num_e = 0;
-	xy[0] = -1;
-	xy[1] = -1;
-	while (count > ++x)
+	col = -1;
+	while (game->count > ++col)
 	{
-		y = -1;
-		while (map[x][++y])
+		fil = -1;
+		while (game->map[col][++fil])
 		{
-			if (map[x][y] == letter)
+			if (game->map[col][fil] == letter)
 			{
-				xy[0] = x;
-				xy[1] = y;
-				num_e++;
+				game->col_jp = col;
+				game->fil_jp = fil;
+				return ;
 			}
 		}
 	}
-	return (xy);
+	return ;
 }
 /*
 int	find_count(char letter, char **map, int count)
