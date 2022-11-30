@@ -3,9 +3,11 @@
 ###############################################################################
 CFILES		= \
 			main.c \
-			funtions/chek/chek_arg.c funtions/chek/chek_map.c funtions/open_map.c \
+			funtions/check/check_arg.c funtions/check/check_map.c funtions/open_map.c \
 			funtions/liberator_map.c funtions/find.c funtions/create_vector.c \
-			grafic/view_map.c funtions/mod_map.c
+			grafic/view_map.c funtions/mod_map.c grafic/print_objets.c \
+			grafic/only_render.c grafic/gfc_control.c \
+			#grafic/img_to_struc.c
 OBJS	=	${CFILES:.c=.o}
 
 CLIBFT		= \
@@ -68,7 +70,7 @@ LIBFT = $(OLIBFT) $(OPRINTF) $(OGNL)
 all: ${NAME}
 
 ${NAME}: ${NLIBRARY} ${OBJS}
-	@${CC} ${CFLAGS} ${OBJS} ${NLIBRARY} ${OPGRAFIC} -o $@
+	@${CC} ${CFLAGS} ${OBJS} ${NLIBRARY} ${OPGRAFIC} -o $@ #-fsanitize=address -g
 	@echo "Created so_long."
 
 $(NLIBRARY): $(LIBFT)

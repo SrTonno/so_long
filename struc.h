@@ -6,27 +6,60 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:22:46 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/24 16:36:11 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/11/30 12:44:54 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef struct	s_game {
+#ifndef STRUC_H
+# define STRUC_H
+# include "so_long.h"
+/*
+typedef struct s_photo
+{
+	void	*jp[5];
+	void	*emotion;
+	void	*fload;
+	void	*obj[5];
+	void	*fin;
+	void	*colec;
+}				t_photo;*/
+
+typedef struct s_game
+{
 	int		col_jp;
 	int		fil_jp;
+	int		col_fin;
+	int		fil_fin;
 	char	**map;
 	int		count;
 	int		len;
 	int		num_mob;
 	int		num_c;
-}				t_game;
+	int		fin;
+	int		direc;
+	int		tot_c;
+	int		col_back;
+	int		fil_back;
+	int		status;
+}	t_game;
 
-typedef struct	s_data {
+typedef struct s_data
+{
 	void	*img;
 	void	*win;
 	void	*mlx;
 	void	*mlx_win;
 	int		win_width;
 	int		win_height;
+	int		move;
 	t_game	game;
 }				t_data;
 
+typedef struct s_star
+{
+	int				col;
+	int				fil;
+	struct s_star	*next;
+}				t_star;
+
+#endif

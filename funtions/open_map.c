@@ -6,18 +6,13 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:57:35 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/24 12:02:01 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/11/30 12:38:41 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-#include <fcntl.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-
-int		count_line(char *ber)
+int	count_line(char *ber)
 {
 	char	*ptn;
 	int		fd;
@@ -33,10 +28,10 @@ int		count_line(char *ber)
 		ptn = get_next_line(fd);
 	}
 	free(ptn);
-	//ft_printf("%d\n", count);
 	close(fd);
 	return (count);
 }
+
 char	**read_map(char *ber, t_game game)
 {
 	int		fd;
@@ -52,10 +47,11 @@ char	**read_map(char *ber, t_game game)
 		game.map[i++] = ft_strtrim(aux, "\n");
 		free(aux);
 	}
-	if (chek_map(game) == 0)
+	if (check_map(game) == 0)
 	{
 		liberator_map(game.map, game.count);
-		perror("Error: Map not valid :(");
+		ft_printf("Error:\n Map not valid :(");
+		system("leaks -q so_long");
 		exit(-1);
 	}
 	return (game.map);

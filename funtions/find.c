@@ -6,16 +6,16 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:54:06 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/24 12:08:03 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/11/30 12:41:02 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	hunt_letter(char letter, t_game *game)
+void	hunt_letter(t_game *game)
 {
 	int	col;
-	int fil;
+	int	fil;
 
 	col = -1;
 	while (game->count > ++col)
@@ -23,23 +23,26 @@ void	hunt_letter(char letter, t_game *game)
 		fil = -1;
 		while (game->map[col][++fil])
 		{
-			if (game->map[col][fil] == letter)
+			if (game->map[col][fil] == 'P')
 			{
 				game->col_jp = col;
 				game->fil_jp = fil;
-				return ;
+			}
+			else if (game->map[col][fil] == 'E')
+			{
+				game->col_fin = col;
+				game->fil_fin = fil;
 			}
 		}
 	}
 	return ;
 }
-/*
+
 int	find_count(char letter, char **map, int count)
 {
-
-	int num_e;
+	int	num_e;
 	int	x;
-	int y;
+	int	y;
 
 	x = -1;
 	num_e = 0;
@@ -53,4 +56,3 @@ int	find_count(char letter, char **map, int count)
 	ft_printf("num_%c:%d\n", letter, num_e);
 	return (num_e);
 }
-*/

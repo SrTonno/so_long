@@ -10,6 +10,7 @@
 		"string": "c",
 		"string_view": "c",
 		"__locale": "c",
-		"ios": "c"
+		"ios": "c",
+		"math.h": "c"
 	}
 }
