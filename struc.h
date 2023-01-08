@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 16:22:46 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/30 12:44:54 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/08 17:11:13 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,5 @@ typedef struct s_data
 	int		move;
 	t_game	game;
 }				t_data;
-
-typedef struct s_star
-{
-	int				col;
-	int				fil;
-	struct s_star	*next;
-}				t_star;
 
 #endif
