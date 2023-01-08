@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 12:31:03 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/30 12:36:16 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:48:50 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ int	key_hook(int keycode, t_data *img)
 int	render_next_frame(t_data *img)
 {
 	only_render_jp(img, &img->game);
-	print_graf(0, 0, "./img/Tree50.XPM", img);
 	str_put(img, img->game);
 	return (0);
 }

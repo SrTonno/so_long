@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:18:20 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/30 16:02:49 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:38:29 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,15 @@ void	direction(t_data *img, t_game *game, int fil, int col)
 
 void	manage_obstacle(t_data *img, t_game *game, int fil, int col)
 {
-	if (fil == 0 || fil == game->len - 1)
-		print_graf(fil * 50, col * 50, "./img/Tree50.xpm", img);
+	if (fil == 0 || fil == game->len - 1
+		|| col == 0 || col == game->count - 1)
+		print_graf(fil * 50, col * 50, "./img/2Tree.xpm", img);
 	else if (col == 0 || col == game->count - 1)
 		print_graf(fil * 50, col * 50, "./img/Tree50.xpm", img);
 	else if ((col + fil) % 3 == 0)
-		print_graf(fil * 50, col * 50, "./img/Boulders50.XPM", img);
+		print_graf(fil * 50, col * 50, "./img/tree_ye.xpm", img);
 	else if ((col + fil) % 3 == 1)
-		print_graf(fil * 50, col * 50, "./img/Bush50.XPM", img);
+		print_graf(fil * 50, col * 50, "./img/tree_red.xpm", img);
 		//print_graf(fil * 50, col * 50, "./img/Tree50.XPM", img);
 	else if ((col + fil) % 3 == 2)
 		print_graf(fil * 50, col * 50, "./img/Box50.XPM", img);

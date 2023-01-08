@@ -7,14 +7,7 @@ typedef struct	s_vars {
 	void	*win;
 }				t_vars;
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		endian;
-	void	*win;
-	void	*mlx;
-	void	*mlx_win;
-}				t_data;
+
 
 
 
@@ -51,6 +44,15 @@ int	render_next_frame(t_data *img)
 	}*/
 	return (0);
 }
+
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		endian;
+	void	*win;
+	void	*mlx;
+	void	*mlx_win;
+}				t_data;
 
 int	main(void)
 {

@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 12:32:46 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/30 12:21:23 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:39:40 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	render_marggin_top(t_data *img, t_game *game)
 	while (6 > ++fil)
 	{
 		print_graf(fil * 50, 0, "./img/suelo50.XPM", img);
-		print_graf(fil * 50, 0, "./img/Tree50.XPM", img);
+		print_graf(fil * 50, 0, "./img/2Tree.xpm", img);
 	}
 }
 
@@ -54,6 +54,11 @@ void	only_render_jp(t_data *img, t_game *game)
 	render_map_back(img, game, game->col_back + 1, game->fil_back + 1);
 	if (game->col_back - 1 != 0)
 		render_map_back(img, game, game->col_back - 2, game->fil_back);
+	if (game->tot_c == game->num_c && game->fin == 0)
+	{
+		print_graf(game->fil_fin * 50, game->col_fin * 50, "./img/suelo50.XPM", img);
+		print_graf(game->fil_fin * 50, game->col_fin * 50, "./img/GRFlag50.xpm", img);
+	}
 	render_marggin_top(img, game);
 	direction(img, game, game->fil_jp, game->col_jp);
 }

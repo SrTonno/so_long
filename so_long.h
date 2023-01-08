@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:33:42 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/30 12:24:24 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/08 13:54:18 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ int		count_line(char *ber);
 void	liberator_map(char **map, int count);
 void	hunt_letter(t_game *game);
 int		find_count(char letter, char **map, int count);
-char	**space(char **map, int count);
+void	find_path(t_game *game);
 int		mod_map(int new_col, int new_fil, t_game *game);
+void	ft_status(t_game *game);
 
 //grafic
 int		view_map(t_game game);

@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:54:06 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/30 12:41:02 by tvillare         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:56:02 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,5 @@ int	find_count(char letter, char **map, int count)
 			if (map[x][y] == letter)
 				num_e++;
 	}
-	ft_printf("num_%c:%d\n", letter, num_e);
 	return (num_e);
 }
