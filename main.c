@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 17:39:35 by tvillare          #+#    #+#             */
-/*   Updated: 2023/01/08 14:03:12 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/08 18:43:05 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	main(int argc, char **argv)
 	game.len = ft_strlen(game.map[0]);
 	game.tot_c = find_count('C', game.map, game.count);
 	hunt_letter(&game);
-
 	find_path(&game);
 	view_map(game);
 	system("leaks -q so_long");
