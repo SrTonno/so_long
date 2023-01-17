@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 15:57:35 by tvillare          #+#    #+#             */
-/*   Updated: 2022/11/30 19:27:18 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/17 20:20:08 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ char	**read_map(char *ber, t_game game)
 
 	i = 0;
 	fd = open(ber, O_RDONLY);
+	if (read(fd, 0, 0) == -1)
+	{
+		ft_printf("Error:\n File not exist");
+		exit(-1);
+	}
 	game.map = calloc(game.count, sizeof(char *));
 	while (game.count > i)
 	{
@@ -50,8 +55,7 @@ char	**read_map(char *ber, t_game game)
 	if (check_map(game) == 0)
 	{
 		liberator_map(game.map, game.count);
-		ft_printf("Error:\n Map not valid :(");
-		system("leaks -q so_long");
+		ft_printf("Error:\n Map not valid:\n  invalid map format");
 		exit(-1);
 	}
 	return (game.map);

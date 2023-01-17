@@ -57,7 +57,7 @@ NLIBRARY= libft.a
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 OPGRAFIC = -lmlx -framework OpenGL -framework AppKit
-
+FSANITIZE = -fsanitize=address -g
 AR = ar
 ARFLAGS = -rcs
 RM = rm -f
@@ -70,7 +70,7 @@ LIBFT = $(OLIBFT) $(OPRINTF) $(OGNL)
 all: ${NAME}
 
 ${NAME}: ${NLIBRARY} ${OBJS}
-	@${CC} ${CFLAGS} ${OBJS} ${NLIBRARY} ${OPGRAFIC} -o $@ #-fsanitize=address -g
+	@${CC} ${CFLAGS} ${OBJS} ${NLIBRARY} ${OPGRAFIC} -o $@ #
 	@echo "Created so_long."
 
 $(NLIBRARY): $(LIBFT)

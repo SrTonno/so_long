@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:06:50 by tvillare          #+#    #+#             */
-/*   Updated: 2023/01/08 17:05:59 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/17 20:24:04 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ void	find_path(t_game *game)
 	col = 0;
 	vector = check_path(game, 0, 0, 1);
 	i = 0;
-	//while (game->count > i)
-		//ft_printf("%s\n", vector[i++]);
 	while (game->count - 1 > ++col)
 	{
 		fil = 0;
@@ -94,7 +92,9 @@ void	find_path(t_game *game)
 			{
 				if (vector[col][fil] == '0')
 				{
-					ft_printf ("Error\n Caminos no validos");
+					ft_printf ("Error:\n Map not valid\n paths not available");
+					liberator_map(vector, game->count);
+					liberator_map(game->map, game->count);
 					exit (1);
 				}
 			}

@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 16:40:58 by tvillare          #+#    #+#             */
-/*   Updated: 2023/01/17 16:44:48 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:50:39 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,7 @@ static void	map_to_term(t_data *img, t_game game)
 			else if (game.map[col][fil] == '1')
 				manage_obstacle(img, &game, fil, col);
 			else if (game.map[col][fil] == 'E')
-			{
-			//if (game->tot_c != game->num_c)
 				print_graf(fil * 50, col * 50, "./img/Flag50.XPM", img);
-			//else
-				//print_graf(fil * 50, col * 50, "./img/salida_abierta.xpm", img);
-			}
 			else if (game.map[col][fil] == 'C')
 				print_graf(fil * 50, col * 50, "./img/Bacon50.xpm", img);
 		}
@@ -55,7 +50,6 @@ static void	defauld_vaue(t_game *game)
 int	view_map(t_game game)
 {
 	t_data	img;
-	//t_photo	photo;
 
 	defauld_vaue(&game);
 	img.win_width = game.len * 50;
@@ -67,8 +61,6 @@ int	view_map(t_game game)
 	ft_printf("Game status:\n");
 	ft_printf("-------------------------------\n");
 	ft_status(&game);
-	//photo_to_struc(&photo, &img);
-	//game.photo = photo;
 	map_to_term(&img, game);
 	mlx_key_hook(img.win, key_hook, &img);
 	mlx_loop_hook(img.mlx, render_next_frame, &img);

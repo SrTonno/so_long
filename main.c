@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 17:39:35 by tvillare          #+#    #+#             */
-/*   Updated: 2023/01/08 19:49:51 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/17 19:59:59 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	main(int argc, char **argv)
 	game.count = 0;
 	if (check_arg(argc, argv) == 0)
 	{
-		perror("Error:\n argument not valid");
-		system("leaks -q so_long");
+		ft_printf("Error:\n Argument not valid\n ./so_long <./map.ber>");
 		return (-1);
 	}
 	game.count = count_line(argv[1]);
@@ -32,6 +31,6 @@ int	main(int argc, char **argv)
 	hunt_letter(&game);
 	find_path(&game);
 	view_map(game);
-	system("leaks -q so_long");
+	liberator_map(game.map, game.count);
 	return (0);
 }

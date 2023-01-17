@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 15:18:20 by tvillare          #+#    #+#             */
-/*   Updated: 2022/12/14 11:38:29 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/17 16:50:07 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ void	print_graf(int fil, int col, char *file, t_data *img)
 
 void	direction(t_data *img, t_game *game, int fil, int col)
 {
-	if (game->direc == 13 || game->direc == 126) //w
+	if (game->direc == 13 || game->direc == 126)
 		print_graf(fil * 50, col * 50, "./img/Pig_Up50.XPM", img);
-	else if (game->direc == 0 || game->direc == 123) //a
+	else if (game->direc == 0 || game->direc == 123)
 		print_graf(fil * 50, col * 50, "./img/Pig_Left50.XPM", img);
-	else if (game->direc == 2 || game->direc == 124) //d
+	else if (game->direc == 2 || game->direc == 124)
 		print_graf(fil * 50, col * 50, "./img/Pig_Right50_1.xpm", img);
-	else //s default
+	else
 	{
 		if (game->direc != 1 && game->direc != 125)
 			print_graf(fil * 50, (col - 1) * 50, "./img/duda50.XPM", img);
@@ -51,7 +51,6 @@ void	manage_obstacle(t_data *img, t_game *game, int fil, int col)
 		print_graf(fil * 50, col * 50, "./img/tree_ye.xpm", img);
 	else if ((col + fil) % 3 == 1)
 		print_graf(fil * 50, col * 50, "./img/tree_red.xpm", img);
-		//print_graf(fil * 50, col * 50, "./img/Tree50.XPM", img);
 	else if ((col + fil) % 3 == 2)
 		print_graf(fil * 50, col * 50, "./img/Box50.XPM", img);
 }
