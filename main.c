@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 17:39:35 by tvillare          #+#    #+#             */
-/*   Updated: 2023/01/08 18:43:05 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/08 19:49:51 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 	game.count = 0;
 	if (check_arg(argc, argv) == 0)
 	{
-		perror("Error: argument not valid");
+		perror("Error:\n argument not valid");
 		system("leaks -q so_long");
 		return (-1);
 	}
