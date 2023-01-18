@@ -77,6 +77,8 @@ $(NLIBRARY): $(LIBFT)
 	@$(AR) $(ARFLAGS) $@ $^
 	@echo "Created LIBFT."
 
+bonus: ${NAME}
+
 .c.o:
 		 @${CC} ${CFLAGS} -Imlx -c $< -o ${<:.c=.o}
 

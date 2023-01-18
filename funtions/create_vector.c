@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:06:50 by tvillare          #+#    #+#             */
-/*   Updated: 2023/01/17 20:24:04 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/18 15:14:48 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,14 @@ static char	**check_path(t_game *game, int col, int fil, int mod)
 	return (vector);
 }
 
+static void	error_path(char **vector, t_game *game)
+{
+	ft_printf ("Error:\n Map not valid\n paths not available");
+	liberator_map(vector, game->count);
+	liberator_map(game->map, game->count);
+	exit (1);
+}
+
 void	find_path(t_game *game)
 {
 	char	**vector;
@@ -91,12 +99,7 @@ void	find_path(t_game *game)
 			if (game->map[col][fil] == 'E' || game->map[col][fil] == 'C')
 			{
 				if (vector[col][fil] == '0')
-				{
-					ft_printf ("Error:\n Map not valid\n paths not available");
-					liberator_map(vector, game->count);
-					liberator_map(game->map, game->count);
-					exit (1);
-				}
+					error_path(vector, game);
 			}
 		}
 	}

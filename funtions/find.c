@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:54:06 by tvillare          #+#    #+#             */
-/*   Updated: 2022/12/12 12:56:02 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:48:11 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,16 @@ void	hunt_letter(t_game *game)
 int	find_count(char letter, char **map, int count)
 {
 	int	num_e;
-	int	x;
-	int	y;
+	int	col;
+	int	fil;
 
-	x = -1;
+	col = -1;
 	num_e = 0;
-	while (count > ++x)
+	while (count > ++col)
 	{
-		y = -1;
-		while (map[x][++y])
-			if (map[x][y] == letter)
+		fil = -1;
+		while (map[col][++fil])
+			if (map[col][fil] == letter)
 				num_e++;
 	}
 	return (num_e);
