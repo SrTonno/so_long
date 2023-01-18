@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:18:21 by tvillare          #+#    #+#             */
-/*   Updated: 2023/01/18 16:09:37 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/18 16:57:05 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ static int	first_end1(char *str, int len)
 		return (0);
 	return (1);
 }
+
 static int	check_len(char **map, int count)
 {
 	int	x;
