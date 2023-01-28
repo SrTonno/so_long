@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 14:06:50 by tvillare          #+#    #+#             */
-/*   Updated: 2023/01/26 11:43:00 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/28 18:42:13 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,4 @@ void	find_path(t_game *game)
 			}
 		}
 	}
-		int a;
-	a = 0;
-	while (vector[a] != '\0')
-		ft_printf("%s\n", vector[a++]);
-	liberator_map(vector, game->count);
 }

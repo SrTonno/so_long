@@ -6,7 +6,7 @@
 /*   By: tvillare <tvillare@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:18:21 by tvillare          #+#    #+#             */
-/*   Updated: 2023/01/18 20:25:00 by tvillare         ###   ########.fr       */
+/*   Updated: 2023/01/28 18:45:30 by tvillare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,11 @@ static int	first_end1(char *str, int len)
 	{
 		if ((str[i] != '\0')
 			&& (str[i] != '1' && str[i] != '0' && str[i] != 'E'
-			&& str[i] != 'P' && str[i] != 'C'))
+				&& str[i] != 'P' && str[i] != 'C'))
 		{
-				return (0);
+			return (0);
 		}
 	}
-
 	return (1);
 }
 
@@ -90,7 +89,7 @@ static int	check_len(char **map, int count)
 	}
 	return (1);
 }
-//int	check_caracter(char **str)
+
 int	check_map(t_game game)
 {
 	int	x;
