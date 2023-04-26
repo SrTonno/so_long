@@ -9,7 +9,9 @@ Para compilar el proyecto, simplemente ejecuta el comando make en la raíz del p
 
 ## Ejecución
 Para ejecutar el juego, utiliza el siguiente comando en la raíz del proyecto:
+
 > ./so_long maps/map.ber
+
 El argumento map.ber puede ser sustituido por el nombre del archivo del mapa que quieras utilizar.
 
 ## Mapas
